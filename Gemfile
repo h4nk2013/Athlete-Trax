@@ -10,7 +10,10 @@ gem 'sqlite3', :group => [:development, :test]
 
 gem 'bcrypt-ruby'
 
-
+group :production do
+  gem 'thin'
+  gem 'pg'
+end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
