@@ -1,7 +1,8 @@
 require 'spec_helper'
 describe User do
 	before do
-		@user = User.new(email: "user@example.com", password: "foobar", password_hash: "foobar", password_salt: "foobar" )
+		  @user = User.create(email: "sardar@yahoo.com", password: "123456789", password_confirmation: "123456789", docu: File.open('features/abc.docx', 'rb'))
+
 	end
 	subject { @user }
 
@@ -11,5 +12,5 @@ describe User do
 	it { should respond_to(:password) }
 	it { should respond_to(:password_confirmation) }
 	it { should respond_to(:docu) }
-	#it { should be_valid }
+	it { should be_valid }
 end

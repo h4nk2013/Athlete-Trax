@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  
+  attr_accessible :file
   has_attached_file :docu, :url => "/assets/users/:id/original/:basename.:extension",
   :path => ":rails_root/public/assets/users/:id/:style/:basename.:extension"
   validates_attachment_presence :docu
