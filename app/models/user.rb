@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   attr_accessible :file
   has_attached_file :docu, :url => "/assets/users/:id/original/:basename.:extension",
   :path => ":rails_root/public/assets/users/:id/:style/:basename.:extension"
-  validates_attachment_presence :docu
+  validates_attachment :docu, :presence => { :message => "File is required" }
   validates_attachment_size :docu, :less_than => 5.megabytes
   validates_attachment_content_type :docu, :content_type => [ 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ]
   attr_accessible :email, :password_hash, :password_salt, :docu

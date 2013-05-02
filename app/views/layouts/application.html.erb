@@ -16,7 +16,7 @@
    <% else %>
       
       <% flash.each do |name, msg|%>
-     <%= content_tag :div, msg, :id => "flash_#{name}" %>
+     <div class="alert"><%= content_tag :div, msg, :id => "flash_#{name}" %></div>
    <% end %>
    <%= yield %>
    <%= render 'layouts/footer' %>
