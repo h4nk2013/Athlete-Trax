@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'haml'
+gem 'haml-rails'
 gem 'rails', '3.2.13'
 gem 'paperclip'
 gem 'bootstrap-sass'
@@ -31,6 +32,8 @@ group :development do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'hpricot'
+  gem 'ruby_parser'
 end
 group :test do
   gem 'cucumber-rails', :require => false

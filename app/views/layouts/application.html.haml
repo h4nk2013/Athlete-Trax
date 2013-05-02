@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %title
+      Athlete-Trax | #{yield(:title)}
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .container
+      = render 'layouts/header'
+      - if current_user
+        Logged in as
+        = succeed "," do
+          %b= current_user.email
+        %a{:href => "#{current_user.docu.url} "}
+          %b> submitted form
+          \.
+        = link_to "Log out", log_out_path, class: "btn btn-mini btn_primary"
+      - else
+        - flash.each do |name, msg|
+          .alert= content_tag :div, msg, :id => "flash_#{name}"
+        = yield
+        = render 'layouts/footer'

@@ -1,0 +1,26 @@
+- provide(:title, 'Home')
+%h1
+  %div{:align => "center"} Welcome to Athlete-Trax
+.center.hero-unit
+  %h1 Sign Up
+  = form_for @user, :html => { :multipart => true } do |f|
+    - if @user.errors.any?
+      .alert
+        .error_messages
+        %h2 Form is invalid
+        %ul
+          - for message in @user.errors.full_messages
+            %li= message
+    %p
+      = f.label :email
+      = f.text_field :email
+    %p
+      = f.label :password
+      = f.password_field :password
+    %p
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation
+    %p
+      = f.label :docu, "File"
+      = f.file_field :docu
+    = f.submit "Sign up", class: "btn btn-medium btn_primary"
