@@ -7,22 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render 'layouts/header' %> 
-
-  <% if current_user %>
-    Logged in as <b><%= current_user.email %></b>, 
-    <a href="<%= current_user.docu.url %> "><b> submitted form</b>.</a></br>
-    <%= link_to "Log out", log_out_path %>
-  <% else %>
-    <h1>Welcome to Athlete-Trax</h1>
-
-<% flash.each do |name, msg|%>
-  <%= content_tag :div, msg, :id => "flash_#{name}" %>
-<% end %>
-
-<%= yield %>
-<%= render 'layouts/footer' %>
-
+  <div class="container">
+    <%= render 'layouts/header' %> 
+    <% if current_user %>
+      Logged in as <b><%= current_user.email %></b>, 
+     <a href="<%= current_user.docu.url %> "><b> submitted form</b>.</a></br>
+     <%= link_to "Log out", log_out_path %>
+   <% else %>
+      
+      <% flash.each do |name, msg|%>
+     <%= content_tag :div, msg, :id => "flash_#{name}" %>
+   <% end %>
+   <%= yield %>
+   <%= render 'layouts/footer' %>
+  </div>
 <% end %>
 </body>
 </html>

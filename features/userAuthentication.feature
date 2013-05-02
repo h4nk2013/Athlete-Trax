@@ -4,7 +4,7 @@ Scenario: Sign in Unsuccessful
 	Given I am on home page
 	When I follow Sign in
 	And the user submits invalid signin information
-	And I press "Save changes"
+	And I press "Log in"
 	Then I should see "Invalid email or password"
 
 Scenario: Sign in Successful
@@ -12,7 +12,7 @@ Scenario: Sign in Successful
 	When I follow Sign in
 	And User has an account
 	And the user submits valid signin information
-	And I press "Save changes"
+	And I press "Log in"
 	And should have link to "Log out"
 	And should have link to "submitted form"
 
@@ -23,7 +23,7 @@ Scenario: Signing up Unsuccessful
 	And I fill in "Password" with "123456789"
 	And I fill in "Password confirmation" with "123456789"
 	And I attach a invalid file "features/abc.txt"
-	And I press "Create User"
+	And I press "Sign up"
 	Then I should see "content type is invalid"
 
 Scenario: Email already exist
@@ -34,7 +34,7 @@ Scenario: Email already exist
 	And I fill in "Password" with "123456789"
 	And I fill in "Password confirmation" with "123456789"
 	And I attach a file "features/abc.docx"
-	And I press "Create User"
+	And I press "Sign up"
 	Then I should see "Email has already been taken"
 
 Scenario: Signing up successful
@@ -44,7 +44,7 @@ Scenario: Signing up successful
 	And I fill in "Password" with "123456789"
 	And I fill in "Password confirmation" with "123456789"
 	And I attach a file "features/abc.docx"
-	And I press "Create User"
+	And I press "Sign up"
 	Then I should see "Signed up!"
 
 Scenario: Page contents

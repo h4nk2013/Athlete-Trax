@@ -1,8 +1,10 @@
 <% provide(:title, 'Home') %>
+<h1><div align="center">Welcome to Athlete-Trax</div></h1>
 <div class="center hero-unit">
-<h1>Sign Up</h1>
-<%= form_for @user, :html => { :multipart => true } do |f| %>
-  <% if @user.errors.any? %>
+  
+  <h1>Sign Up</h1>
+  <%= form_for @user, :html => { :multipart => true } do |f| %>
+    <% if @user.errors.any? %>
     <div class="error_messages">
       <h2>Form is invalid</h2>
       <ul>
@@ -29,7 +31,7 @@
       <%= f.file_field :docu %>
     </p>
         
-    <p class="button"><%= f.submit %></p>
+    <%= f.submit "Sign up", class: "btn btn-medium btn_primary" %>
 </div>
 <% end %>
 
